@@ -1,0 +1,21 @@
+{
+  "name": "facturacion-uptc",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "live-server",
+    "clean": "rm -rf dist",
+    "serve": "tsc --watch",
+    "dev": "concurrently \"npm run serve\" \"npm run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.7.6",
+    "concurrently": "^9.0.1",
+    "typescript": "^5.6.3"
+  }
+}
