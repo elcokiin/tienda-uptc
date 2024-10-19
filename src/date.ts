@@ -1,3 +1,5 @@
+const FORMAT_TIME = 'es-CO'
+
 export function clock(): string {
     const now: Date = new Date()
     const options: Intl.DateTimeFormatOptions = {
@@ -5,7 +7,7 @@ export function clock(): string {
         minute: 'numeric',
         second: 'numeric'
     }
-    const time: string = new Intl.DateTimeFormat('en-US', options).format(now)
+    const time: string = new Intl.DateTimeFormat(FORMAT_TIME, options).format(now)
     
 
     return time
@@ -26,7 +28,7 @@ export function date(): string {
         month: 'long',
         day: 'numeric'
     }
-    const date: string = new Intl.DateTimeFormat('en-US', options).format(now)
+    const date: string = new Intl.DateTimeFormat(FORMAT_TIME, options).format(now)
 
     return date
 }

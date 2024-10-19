@@ -7,8 +7,35 @@
     <title>Tienda UPTC</title>
 </head>
 <body>
-    <h1>Algo va aquí</h1>
+    <header>
+        <a href="#">
+            <h1 class="title">Tienda UPTC</h1>
+        </a>
+    </header>
+    <div class="bill">
+        <div class="bill-header">
+            <div class="bill-identification">
+                <div class="bill-identification-number-container">
+                    <p>Número de factura: <span id="bill-identification-number"></span></p>
+                </div>
+                <div class="bill-identification-date">
+                    <p>Fecha: <span id="bill-identification-date"></span></p>
+                    <p>Hora: <span id="bill-identification-clock"></span></p>
+                </div>
+            </div>
+    
+            <div class="bill-client"></div>
+        </div>
 
-    <script src="../dist/index.js"></script>
+        <div class="bill-products">
+<!-- table with products -->
+        </div>
+        
+        <div class="bill-footer">
+<!-- payment method and name of the employee -->
+        </div>
+    </div>
+
+    <script type="module" src="../dist/index.js"></script>
 </body>
 </html>
