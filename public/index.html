@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/index.css">
-    <title>Tienda UPTC</title>
+    <title>S-UPTC</title>
 </head>
 <body>
     <header>
         <a href="#">
-            <h1 class="title">Tienda UPTC</h1>
+            <h1 class="title">S-UPTC</h1>
         </a>
     </header>
     <div class="bill">
@@ -29,43 +29,164 @@
             </div>
     
             <div class="bill-section bill-client-product">
-                <div class="bill-client flex">
-                    <label class="bill-input">
-                        <input class="bill-input__field" type="number" placeholder=" " maxlength="20"/>
-                        <span class="bill-input__label">Cliente</span>
-                    </label>
-                    <button id="search-client" class="bill-search__button">Buscar</button>
-                    <p class="bold flex" id="client-name"></p>
+                <div class="bill-client">
+                    <div class="bill-client__input flex">
+                        <label class="bill-input">
+                            <input class="bill-input__field" type="number" placeholder=" " maxlength="20"/>
+                            <span class="bill-input__label">Documento del cliente</span>
+                        </label>
+                        <button id="search-client" class="bill-search__button">
+                            <i class="bill-search__container-image">
+                                <img class="search-icon" src="./assets/images/search.png" alt="search icon">
+                            </i>
+                        </button>
+                    </div>
+                    <p class="bold flex" id="client-name">Diego Fernando Aguirre Tenjo</p>
                 </div>
-                <div class="bill-product flex">
-                    <label class="bill-input">
-                        <input class="bill-input__field" type="text" placeholder=" " maxlength="50"/>
-                        <span class="bill-input__label">Producto</span>
-                    </label>
-                    <ul id="suggestions" class="suggestions"></ul>
-                    <div class="select">
-                        <select>
-                          <option value="1">kg</option>
-                          <option value="2">g</option>
-                          <option value="3">ml</option>
-                          <option value="4">l</option>
-                          <option value="5">lb</option>
-                        </select>
-                      </div>
-                    <button id="search-client" class="bill-search__button">Buscar</button>
-                    <p class="bold flex" id="client-name"></p>
+                <div class="bill-product">
+                    <div class="bill-product__inputs">
+                        <div>
+                            <label class="bill-input">
+                                <input class="bill-input__field" type="text" placeholder=" " maxlength="50"/>
+                                <span class="bill-input__label">Producto</span>
+                            </label>
+                            <ul id="suggestions" class="suggestions"></ul>
+                            <div class="select">
+                                <select>
+                                  <option value="1">kg</option>
+                                  <option value="2">g</option>
+                                  <option value="3">ml</option>
+                                  <option value="4">l</option>
+                                  <option value="5">lb</option>
+                                </select>
+                              </div>
+                        </div>
+                          <label class="bill-input bill-input-quantity__disabled">
+                            <input class="bill-input__field" type="number" placeholder=" " maxlength="20" disabled/>
+                            <span class="bill-input__label bill-input-quantity">Cantidad</span>
+                        </label>
+                    </div>
+                    <div class="bill-product__button">
+                        <p class="flex" id="product-name">Producto aún sin seleccionar</p>
+                        <button id="search-client" class="bill-plus__button" disabled>
+                            +
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="bill-products">
-<!-- table with products -->
+            <table class="geist-table">
+                <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 34%;">
+                    <col style="width: 14%;">
+                    <col style="width: 14%;">
+                    <col style="width: 14%;">
+                    <col style="width: 14%;">
+                    <col style="width: 10%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Nombre</th>
+                        <th>Unidad</th>
+                        <th>Cantidad</th>
+                        <th>V/unitario</th>
+                        <th>V/total</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody class="interactive striped">
+                    <tr class="pruf-row-disabled">
+                        <td>1</td>
+                        <td>Papa</td>
+                        <td>lb</td>
+                        <td>100 lb</td>
+                        <td>$20.00</td>
+                        <td>$2,000.00</td>
+                        <td class="col-center">
+                            <button class="delete-button">
+                                x
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="pruf-row-disabled">
+                        <td>2</td>
+                        <td>Leche</td>
+                        <td>l</td>
+                        <td>2 L</td>
+                        <td>$100.00</td>
+                        <td>$5,000.00</td>
+                        <td class="col-center">
+                            <button class="delete-button">
+                                x
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td colspan="1">
+                            <span>Subtotal:</span>
+                        </td>
+                        <td colspan="1">
+                            <span>$16,500.00</span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
         
         <div class="bill-footer">
-<!-- payment method and name of the employee -->
+                <div class="bill-payment__footer">
+                    <div class="bill-payment-actions__footer">
+                        <div class="summary-item">
+                            <span>Método de pago:</span>
+                            <select id="payment-method">
+                                <option value="efectivo">Efectivo</option>
+                                <option value="tarjeta">Tarjeta</option>
+                                <option value="transferencia">Transferencia</option>
+                            </select>
+                        </div>
+                        <div class="summary-item">
+                            <span>Pago con:</span>
+                            <input type="number" id="payment-amount" min="0" step="0.01">
+                        </div>
+                        <div class="summary-item">
+                            <span>Cambio:</span>
+                            <span id="change-amount">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="bill-details__footer">
+                        <div class="summary-item">
+                            <span>Descuento:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>IVA:</span>
+                            <span>$2,640.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total a pagar:</span>
+                            <span>$19,140.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-container">
+                    <button class="register-sale-btn">Registrar Venta</button>
+                    <div class="employee-info">
+                        <span>Factura realizada por: </span> <span id="employee-name">Lunna Karina Sosa</span>
+                    </div>
+                </div>
         </div>
     </div>
+
+    <footer class="page-footer">
+        <p>© 2024 S-UPTC. Todos los derechos reservados.</p>
+    </footer>
 
     <script type="module" src="../dist/index.js"></script>
 </body>

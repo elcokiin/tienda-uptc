@@ -8,17 +8,21 @@
     --color-light: white;
   --color-dark: #212121;
   --color-signal: #fab700;
+  --color-yellow-u: #FFCC29;
+  --color-green-success: #87cd51;
+  --color-red-error: #fd0100;
   
   --color-background: var(--color-light);
   --color-text: var(--color-dark);
   --color-accent: var(--color-signal);
+  --color-background-section: #fafafa;
   
   --size-bezel: .5rem;
   --size-radius: 4px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f5f5f5;
     color: #222;
 }
@@ -37,7 +41,7 @@ header {
     width: 100%;
     height: 80px;
     padding: 8px 20px;
-    background-color: #FFCC29;
+    background-color: var(--color-yellow-u);
     display: flex;
     justify-content: start;
     align-items: center;
@@ -60,7 +64,7 @@ header {
 .bill-section {
     margin: 8px;
     padding: 16px 24px;
-    background-color: #f1f1f1;
+    background-color: var(--color-background-section);
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
@@ -82,16 +86,23 @@ header {
 }
 
 .bill-client {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.bill-client__input {
     display: flex;
     align-items: center;
     gap: 4px;
 }
 
 .bill-product {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 4px;
 }
 
 
@@ -109,9 +120,9 @@ header {
     white-space: nowrap;
     transform: translate(0, 0);
     transform-origin: 0 0;
-    background: #f1f1f1;
+    background: var(--color-background-section);
     transition: transform 120ms ease-in;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.2;
 }
 
@@ -119,7 +130,7 @@ header {
     box-sizing: border-box;
     display: block;
     width: 100%;
-    border: 3px solid currentColor;
+    border: 2px solid currentColor;
     padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
     color: currentColor;
     background: transparent;
@@ -137,7 +148,6 @@ select {
     /* Reset Select */
     appearance: none;
     outline: 10px red;
-    border: 0;
     box-shadow: none;
     /* Personalize */
     flex: 1;
@@ -145,7 +155,8 @@ select {
     background-color: transparent;
     background-image: none;
     cursor: pointer;
-    border: 3px solid currentColor;
+    border: 2px solid currentColor;
+    border-top: none;
 }
 /* Remove IE arrow */
 select::-ms-expand {
@@ -179,18 +190,220 @@ select::-ms-expand {
 }
 
 .bill-search__button {
-    height: 38px;
-    padding: 2px 8px;
+    width: 40px;
+    height: 40px;
     background-color: transparent;
-    border: 3px solid currentColor;
+    border: 2px solid currentColor;
     color: #111;
-    border-radius: 8px;
+    border-radius: 50%;
     cursor: pointer;
     font-weight: bold;
     transition: ease-in-out 255ms;
 }
 
 .bill-search__button:hover {
-    border: 3px solid var(--color-signal);
     background-color: var(--color-signal);
+}
+
+.bill-search__container-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-icon {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    fill: currentColor;
+}
+
+.bill-plus__button {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    background-color: transparent;
+    border: 2px solid currentColor;
+    color: #111;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 255ms;   
+}
+
+.bill-product__inputs {
+    display: flex;
+    gap: 8px;
+}
+.bill-input-quantity {
+    font-weight: 300;
+}
+
+.bill-input-quantity__disabled {
+    background-color: var(--color-background-section);
+    color: #999;
+    cursor: not-allowed;
+}
+
+.bill-product__button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bill-plus__button:hover {
+    background-color: var(--color-green-success);
+}
+
+.bill-plus__button:disabled {
+    background-color: var(--color-background-section);
+    color: #999;
+    cursor: not-allowed;
+}
+
+.bill-products {
+    margin: 28px 32px;
+    border-radius: 8px;
+    display: flex;
+}
+
+.geist-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.geist-table th,
+.geist-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.geist-table th {
+    font-weight: 600;
+    background-color: #fafafa;
+}
+
+.geist-table tbody tr:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.geist-table tbody.interactive tr:hover {
+    background-color: #f5f5f5;
+}
+
+.geist-table tbody.striped tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.geist-table tfoot td {
+    font-weight: 500;
+}
+
+.text-gray-1000 {
+    color: #000;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.pruf-row-disabled {
+    background-color: #f5f5f5;
+    color: #999;
+}
+
+.delete-button {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    background-color: transparent;
+    border: 2px solid currentColor;
+    color: #111;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in-out 255ms;   
+}
+
+.delete-button:hover {
+    background-color: var(--color-red-error);
+    color: white;
+}
+
+.col-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.geist-table tfoot td {
+    font-weight: 500;
+}
+
+.col-number { width: 5%; }
+.col-name { width: 25%; }
+.col-unit, .col-quantity, .col-unit-price, .col-total-price { width: 15%; }
+.col-delete { width: 10%; }
+
+.delete-btn {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background-color: #ff7875;
+}
+
+.bill-footer {
+    background-color: var(--color-background-section);
+    margin: 12px 32px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bill-payment__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+}
+.employee-info {
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.page-footer {
+    width: 100%;
+    height: 80px;
+    padding: 8px 20px;
+    background-color: var(--color-yellow-u);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: lighter;
 }
