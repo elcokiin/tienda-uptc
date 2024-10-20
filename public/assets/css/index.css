@@ -43,9 +43,19 @@ header {
     padding: 8px 20px;
     background-color: var(--color-yellow-u);
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.uptc-logo__container {
+    width: 260px;
+    height: 120%;
+}
+.uptc-logo__container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .bold {
@@ -143,27 +153,9 @@ header {
     color: var(--color-accent);
 }
 
-
-select {
-    /* Reset Select */
-    appearance: none;
-    outline: 10px red;
-    box-shadow: none;
-    /* Personalize */
-    flex: 1;
-    padding: 0 calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
-    background-color: transparent;
-    background-image: none;
-    cursor: pointer;
-    border: 2px solid currentColor;
-    border-top: none;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-    display: none;
-}
 /* Custom Select wrapper */
 .select {
+    padding: 2px 0;
     position: relative;
     display: flex;
     width: 60px;
@@ -171,22 +163,9 @@ select::-ms-expand {
     border-radius: .25em;
     background-color: transparent;
     overflow: hidden;
-}
-/* Arrow */
-.select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 50%;
-    right: 1em;
-    transform: translateY(-50%);
-    padding: 0;
-    background-color: transparent;
-    transition: .25s all ease;
-    pointer-events: none;
-}
-/* Transition */
-.select:hover::after {
-    color: var(--color-signal);
+    border: 2px solid currentColor;
+    border-top: none;
+    outline: none;
 }
 
 .bill-search__button {
@@ -386,6 +365,20 @@ select::-ms-expand {
     justify-content: space-around;
 }
 
+.bill-payment-actions__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+}
+
+.bill-details__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+}
+
 .footer-container {
     display: flex;
     flex-direction: column;
@@ -393,6 +386,18 @@ select::-ms-expand {
 .employee-info {
     font-size: 12px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.payment-method {
+    width: 100px;
+    border: 2px solid currentColor;
+}
+
+.payment-method__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .page-footer {
@@ -406,4 +411,36 @@ select::-ms-expand {
     margin-top: 20px;
     font-size: 16px;
     font-weight: lighter;
+}
+
+.input-pay {
+    border: none;
+    border-bottom: 1px solid currentColor;    
+    outline: none;
+    padding: 4px 8px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+ 
+.register-sale-btn {
+    color: #222;
+    font-weight: bold;
+    width: 80%;
+    height: 44px;
+    border: none;
+    background-color: var(--color-green-success);
+    border: 2px solid var(--color-green-success);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: ease-in-out 255ms;
+}
+
+.register-sale-btn:hover {
+    background-color: white;
 }
