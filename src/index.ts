@@ -1,5 +1,5 @@
 import { createClock, createDate } from './date.js'
-import { generateBillNumber } from './utils.js'
+import { generateBillIdentificator } from './utils.js'
 
 /**
  * Updates the text content of the HTML element with the ID 'bill-identification-clock'
@@ -15,7 +15,7 @@ function intervalClock(): void {
 
 const elementBillIdentification: HTMLElement | null = document.getElementById('bill-identification-number')
 if (elementBillIdentification) {
-    elementBillIdentification.textContent = generateBillNumber()
+    elementBillIdentification.textContent = generateBillIdentificator()
 }
 
 const elementDate: HTMLElement | null = document.getElementById('bill-identification-date')

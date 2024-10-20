@@ -14,17 +14,48 @@
     </header>
     <div class="bill">
         <div class="bill-header">
-            <div class="bill-identification">
-                <div class="bill-identification-number-container">
-                    <p>Número de factura: <span id="bill-identification-number"></span></p>
+            <div class="bill-section bill-identification">
+                <div class="bill-identification-number-container flex">
+                    <p class="bold">Número de factura: </p> <span id="bill-identification-number"></span>
                 </div>
                 <div class="bill-identification-date">
-                    <p>Fecha: <span id="bill-identification-date"></span></p>
-                    <p>Hora: <span id="bill-identification-clock"></span></p>
+                    <div class="flex">
+                        <p class="bold">Fecha:</p><span id="bill-identification-date"></span>
+                    </div>
+                    <div class="flex">
+                        <p class="bold">Hora:</p><span id="bill-identification-clock"></span>
+                    </div>
                 </div>
             </div>
     
-            <div class="bill-client"></div>
+            <div class="bill-section bill-client-product">
+                <div class="bill-client flex">
+                    <label class="bill-input">
+                        <input class="bill-input__field" type="number" placeholder=" " maxlength="20"/>
+                        <span class="bill-input__label">Cliente</span>
+                    </label>
+                    <button id="search-client" class="bill-search__button">Buscar</button>
+                    <p class="bold flex" id="client-name"></p>
+                </div>
+                <div class="bill-product flex">
+                    <label class="bill-input">
+                        <input class="bill-input__field" type="text" placeholder=" " maxlength="50"/>
+                        <span class="bill-input__label">Producto</span>
+                    </label>
+                    <ul id="suggestions" class="suggestions"></ul>
+                    <div class="select">
+                        <select>
+                          <option value="1">kg</option>
+                          <option value="2">g</option>
+                          <option value="3">ml</option>
+                          <option value="4">l</option>
+                          <option value="5">lb</option>
+                        </select>
+                      </div>
+                    <button id="search-client" class="bill-search__button">Buscar</button>
+                    <p class="bold flex" id="client-name"></p>
+                </div>
+            </div>
         </div>
 
         <div class="bill-products">

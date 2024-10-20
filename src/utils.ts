@@ -5,7 +5,7 @@
  *
  * @returns {string} The generated bill number.
  */
-export function generateBillNumber(): string {
+export function generateBillIdentificator(): string {
     const base36: string = new Date().getTime().toString(36)
-    return base36.substring(0, 10).toUpperCase()
+    return base36.substring(0, 20).toUpperCase()
 }
