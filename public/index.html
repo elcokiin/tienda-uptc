@@ -35,7 +35,7 @@
                 <div class="bill-client">
                     <div class="bill-client__input flex">
                         <label class="bill-input">
-                            <input class="bill-input__field" type="number" placeholder=" " maxlength="20"/>
+                            <input class="bill-input__field" id="input-document-client" type="number" placeholder=" " maxlength="20"/>
                             <span class="bill-input__label">Documento del cliente</span>
                         </label>
                         <button id="search-client" class="bill-search__button">
@@ -44,34 +44,41 @@
                             </i>
                         </button>
                     </div>
-                    <p class="flex" id="client-name">Cliente aún sin seleccionar</p>
+                    <div class="flex" id="client-data">
+                        <p class="flex" id="client-name">Cliente aún sin seleccionar</p>
+                    </div>
                 </div>
                 <div class="bill-product">
                     <div class="bill-product__inputs">
                         <div>
-                            <label class="bill-input">
-                                <input class="bill-input__field" type="text" placeholder=" " maxlength="50"/>
-                                <span class="bill-input__label">Producto</span>
-                            </label>
-                            <ul id="suggestions" class="suggestions"></ul>
-                            <div>
-                                <select class="select">
-                                  <option value="1">kg</option>
-                                  <option value="2">g</option>
-                                  <option value="3">ml</option>
-                                  <option value="4">l</option>
-                                  <option value="5">lb</option>
-                                </select>
-                              </div>
+                            <div class="bill-input__product">
+                                <label class="bill-input">
+                                    <input class="bill-input__field bill-product__input" autocomplete="off" id="bill-product__input" type="text" placeholder="Producto" maxlength="50"/>
+                                    <ul class="products-search__container hidden-content" id="products-search__container">
+                                    </ul>
+                                </label>
+                                <!-- <div>
+                                    <select class="select">
+                                      <option value="1">kg</option>
+                                      <option value="2">g</option>
+                                      <option value="3">ml</option>
+                                      <option value="4">l</option>
+                                      <option value="5">lb</option>
+                                    </select>
+                                  </div> -->
+                            </div>
                         </div>
-                          <label class="bill-input bill-input-quantity__disabled">
-                            <input class="bill-input__field" type="number" placeholder=" " maxlength="20" disabled/>
-                            <span class="bill-input__label bill-input-quantity">Cantidad</span>
-                        </label>
+                        <div class="flex quantity">
+                            <label class="bill-input bill-input-quantity__disabled" id="label-quantity">
+                                <input class="bill-input__field" autocomplete="off" id="bill-product__quantity" type="number" placeholder=" " maxlength="20" disabled/>
+                                <span class="bill-input__label bill-input-quantity">Cantidad</span>
+                            </label>
+                            <span id="unit-product" class="bold"></span>
+                        </div>
                     </div>
                     <div class="bill-product__button">
-                        <p class="flex" id="product-name">Producto aún sin seleccionar</p>
-                        <button id="search-client" class="bill-plus__button" disabled>
+                        <p class="flex" id="bill-product__name">Producto aún sin seleccionar</p>
+                        <button id="bill-product__add" class="bill-plus__button" disabled>
                             +
                         </button>
                     </div>
@@ -101,7 +108,7 @@
                         <th>Eliminar</th>
                     </tr>
                 </thead>
-                <tbody class="interactive striped">
+                <tbody class="interactive striped" id="table-products">
                     <tr class="pruf-row-disabled">
                         <td>1</td>
                         <td>Papa</td>
@@ -110,7 +117,7 @@
                         <td>$20.00</td>
                         <td>$2,000.00</td>
                         <td class="col-center">
-                            <button class="delete-button">
+                            <button class="delete-button" disabled>
                                 x
                             </button>
                         </td>
@@ -123,7 +130,7 @@
                         <td>$100.00</td>
                         <td>$5,000.00</td>
                         <td class="col-center">
-                            <button class="delete-button">
+                            <button class="delete-button" disabled>
                                 x
                             </button>
                         </td>
@@ -135,8 +142,8 @@
                         <td colspan="1">
                             <span>Subtotal:</span>
                         </td>
-                        <td colspan="1">
-                            <span>$16,500.00</span>
+                        <td colspan="2">
+                            <span id="subtotal">$16,500.00</span>
                         </td>
                     </tr>
                 </tfoot>
@@ -166,15 +173,17 @@
                     <div class="bill-details__footer">
                         <div class="summary-item">
                             <span>Descuento:</span>
-                            <span>$0.00</span>
+                            <input type="number" value="0" class="input-pay input-iva" name="descuento" id="discount">
+                            <span>%</span>
                         </div>
                         <div class="summary-item">
                             <span>IVA:</span>
-                            <span>$2,640.00</span>
+                            <input type="number" value="19" class="input-pay input-iva" name="iva" id="iva">
+                            <span>%</span>
                         </div>
                         <div class="summary-item">
                             <span>Total a pagar:</span>
-                            <span class="bold">$19,140.00</span>
+                            <span class="bold" id="count-pay">$19,140.00</span>
                         </div>
                     </div>
                 </div>

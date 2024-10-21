@@ -4,13 +4,13 @@
 //     unidad_medida VARCHAR(10) NOT NULL 
 // );
 
-type Product = {
+type TypeProduct = {
     id_producto: number;
     nombre: string;
     unidad_medida: string; // kg', 'g', 'lt', 'ml', 'unit'
 }
 
-const products: Product[] = [
+export const products: TypeProduct[] = [
     { id_producto: 1, nombre: 'Leche', unidad_medida: 'lt' },
     { id_producto: 2, nombre: 'Pan', unidad_medida: 'unit' },
     { id_producto: 3, nombre: 'Azúcar', unidad_medida: 'kg' },

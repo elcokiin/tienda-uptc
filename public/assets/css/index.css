@@ -21,10 +21,25 @@
   --size-radius: 4px;
 }
 
+.warning {
+    color: var(--color-red-error);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f5f5f5;
     color: #222;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 a {
@@ -137,7 +152,6 @@ header {
 }
 
 .bill-input__field {
-    box-sizing: border-box;
     display: block;
     width: 100%;
     border: 2px solid currentColor;
@@ -419,6 +433,9 @@ header {
     outline: none;
     padding: 4px 8px;
 }
+.input-iva {
+    width: 30px;
+}
 
 .footer-container {
     display: flex;
@@ -443,4 +460,62 @@ header {
 
 .register-sale-btn:hover {
     background-color: white;
+}
+
+.bill-input__product {
+    position: relative;
+}
+.products-search__container {
+    width: 300px;
+    max-height: 340px;
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+
+.hidden-content {
+    display: none;
+}
+.visible {
+    display: block !important;
+}
+
+.bill-product__input::placeholder {
+    color: currentColor;
+    font-weight: bold;
+}
+
+.products-search__container li {
+    list-style: none;
+    padding: 8px 16px;
+}
+
+.product-suggestion {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: ease-in-out 255ms;
+}
+.product-suggestion:hover {
+    background-color: #f5f5f5;
+}
+
+.product-suggestion span:first-child {
+    font-weight: bold;
+}
+
+.quantity {
+    align-items: center;
+}
+
+.delete-button:disabled {
+    background-color: var(--color-background-section);
+    color: #999;
+    cursor: not-allowed;
 }
