@@ -21,6 +21,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
@@ -29,5 +30,8 @@
     "facturacion-uptc": "file:",
     "mysql": "^2.18.1",
     "nodemon": "^3.1.7"
+=======
+    "facturacion-uptc": "file:"
+>>>>>>> Stashed changes
   }
 }
